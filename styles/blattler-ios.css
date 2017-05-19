@@ -1,0 +1,56 @@
+/**
+* version 1.4.0, 22.12.2013
+*/
+
+/* =============================== header iOS =============================== */
+
+div[data-role="page"] div[data-role="header"] {
+    height: 58px;
+}
+
+div[data-role="page"] div[data-role="header"] a.ui-btn-left {
+    margin-top: 11px;
+}
+
+/* weiss */
+.bfvheader-e {
+    background-image: url(images/header-bg-e2x.png) !important;
+}
+
+/* gelb */
+.bfvheader-f {
+    background-image: url(images/header-bg-f2x.png) !important;
+}
+
+/* gruen */
+.bfvheader-g {
+    background-image: url(images/header-bg-g2x.png) !important;
+}
+
+/* rot */
+.bfvheader-h {
+    background-image: url(images/header-bg-h2x.png) !important;
+}
+
+/* blau */
+.bfvheader-i {
+    background-image: url(images/header-bg-i2x.png) !important;
+}
+
+/* orange */
+.bfvheader-j {
+    background-image: url(images/header-bg-j2x.png) !important;
+}
+
+/* violett */
+.bfvheader-k {
+    background-image: url(images/header-bg-k2x.png) !important;
+}
+
+
+
+
+
+
+
+

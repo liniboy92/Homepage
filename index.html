@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blattler</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico">
+
+        <link href="styles/jquery.mobile.css" type="text/css" rel="stylesheet" />
+        <link href="styles/blattler-theme.min.css" type="text/css" rel="stylesheet" />
+        <link href="styles/blattler.css" type="text/css" rel="stylesheet" />
+        <!--<link href="styles/blattler-ios.css" type="text/css" rel="stylesheet" />-->
+        <link rel="stylesheet" href="libs/leaflet/leaflet.css" />
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+		<script>
+		$(document).bind('mobileinit',function(){
+			$.mobile.changePage.defaults.changeHash = false;
+			$.mobile.hashListeningEnabled = false;
+			$.mobile.pushStateEnabled = false;
+		});
+		</script>
+        <script type="text/javascript" src="js/jquery.mobile.js"></script>
+        <script type="text/javascript" src="libs/leaflet/leaflet.js"></script>
+        <script type="text/javascript" src="js/blattler.js"></script>
+        <!--<script type="text/javascript" src="js/control.js"></script>-->
+    </head>
+    <body>
+        <!-- index page (Inhaltsverzeichnis / Startseite) -->
+        <div data-role="page" id="mainpage" data-title="Blattler" data-theme="e">           
+
+            <div data-role="header" id="mainpageheader" class="bfvheader bfvheader-e" data-position="fixed" data-tap-toggle="false">
+                <span class="ui-title"></span>
+            </div><!-- /header -->
+
+            <div data-role="content">
+
+                <h2>INHALTSVERZEICHNIS</h2>               
+                <ul data-role="listview" data-filter="false" data-filter-placeholder="Suche">
+                    <li data-theme="e" class="title-center" data-filtertext="GAMS Absperrbereiche Absperrmassnahmen 3A">
+                        <a href="#" onclick="showGams()">
+                            <img src="images/icons/gams.png" alt="GAMS + Absperrbereiche"><h3>GAMS + Absperrbereiche</h3>
+                        </a>
+                    </li>
+                    <li data-theme="e" class="title-center" data-filtertext="Kennzeichnung Gefahrzettel GHS ADR RID Stoff UN Nummer Chemikalien Warnzeichen Symbole Gefahrenklassen Klassen Explosion Giftigkeit Ansteckung Oxidierend Radioaktivität Nichtionisierende Strahlung Ätzwirkung Reizend Entzündbarkeit GAS Hinweise LTD QTY Binnenschifffahrt Eisenbahn">
+                        <a href="#" onclick="showKennzeichnung()">
+                            <img src="images/icons/kennzeichnung.png" alt="Kennzeichnung"><h3>Kennzeichnung</h3><p>Gefahrzettel, GHS, ADR, RID, ADN</p>
+                        </a>
+                    </li>
+                    <li data-theme="e" data-filtertext="Gefahrnummer Kemler Beförderungspapiere Klassen Transport Warntafel Kennzeichnungsnummer Gefahrnummer ">
+                        <a href="#" onclick="showGefahrnummer()">
+                            <img src="images/icons/gefahrnummer.png" alt="Gefahrnummer"><h3>Gefahrnummer</h3><p>Kemler</p>
+                        </a>
+                    </li>
+                    <li data-theme="e" data-filtertext="Kennzeichnung Gasflaschen Rohrleitungen Rohre Flaschen">
+                        <a href="#" onclick="showGasflaschen()">
+                            <img src="images/icons/gasflaschen.png" alt="Kennzeichnung Gasflaschen/Rohre"><h3>Kennzeichnung</h3><p>Gasflaschen, Rohrleitungen</p>
+                        </a>
+                    </li>
+
+                    <li data-theme="g" class="title-center" data-filtertext="Biologische Agenzien Medizin Abfall Risiko Stand still ABC Seuche Terror Anschlag">
+                        <a href="#" onclick="showBio()">
+                            <img src="images/icons/bio.png" alt="Biologische Agenzien"><h3>Biologische Agenzien</h3>
+                        </a>
+                    </li>
+
+                    <li data-theme="f" data-filtertext="Strahlenschutz GAMS 3A Strahlen Kontamination Dosis Abstand Aufenthaltszeit Abschirmung">
+                        <a href="#" onclick="showStrahlenschutz()">
+                            <img src="images/icons/strahlenschutz.png" alt="GAMS + Absperrbereiche"><h3>Strahlenschutz</h3><p>3A-Regel</p>
+                        </a>
+                    </li>
+
+                    <li data-theme="h" data-filtertext="Menschenrettung Erste Hilfe Not-Deko Lebensrettende Sofortmassnahmen Verbrennung Verätzung Kontamination">
+                        <a href="#" onclick="showMenschenrettung()">
+                            <img src="images/icons/menschenrettung.png" alt="Menschenrettung - Erste Hilfe"><h3>Menschenrettung - Erste Hilfe</h3><p>Not-Deko</p>
+                        </a>
+                    </li>
+                    <li data-theme="h" class="title-center" data-filtertext="Einsatzhygiene Deko Einsatzkräfte Zivilpersonen Dekontamination Deko-Platz">
+                        <a href="#" onclick="showEinsatzhygiene()">
+                            <img src="images/icons/einsatzhygiene.png" alt="Einsatzhygiene und Deko"><h3>Einsatzhygiene und Deko</h3><p>Deko Einsatzkräfte, Zivilpersonen</p>
+                        </a>
+                    </li>
+
+                    <li data-theme="i" class="title-center" data-filtertext="Photovoltaik Spannung PV">
+                        <a href="#" onclick="showPhotovoltaik()">
+                            <img src="images/icons/photovoltaik.png" alt="Photovoltaik"><h3>Photovoltaik</h3>
+                        </a>
+                    </li>
+                    <li data-theme="i" data-filtertext="Gefahren Elektrizität Sicherheitsabstände Volt Spannung Hoch Nieder Schaum Schrittspannung">
+                        <a href="#" onclick="showElektrizitaet()">
+                            <img src="images/icons/elektrizitaet.png" alt="Gefahren durch Elektrizität"><h3>Gefahren durch Elektrizität</h3><p>Sicherheitsabstände</p>
+                        </a>
+                    </li>
+                    <li data-theme="i" class="title-center" data-filtertext="FW-Einsatz Gleisbereich Zug Hochspannung Fahrdienstleiter Bremsweg ÖBB ">
+                        <a href="#" onclick="showGleisbereich()">
+                            <img src="images/icons/gleisbereich.png" alt="FW-Einsatz im Gleisbereich"><h3>FW-Einsatz im Gleisbereich</h3>
+                        </a>
+                    </li>
+                    <li data-theme="i" data-filtertext="KFZ Alternativantrieb Auto PKW Gas LPG CNG Wasserstoff Hybrid Elektro Flüssiggas Erdgas Methanol Brennstoffzelle Tank">
+                        <a href="#" onclick="showAlternativantrieb()">
+                            <img src="images/icons/alternativantrieb.png" alt="KFZ mit Alternativantrieb"><h3>KFZ mit Alternativantrieb</h3><p>Gas (LPG, CNG), Wasserstoff, Hybrid, Elektro</p>
+                        </a>
+                    </li>
+
+                    <li data-theme="j" data-filtertext="Stoff-Checklisten Flüssiggas Propan Butan Erdgas Explosion BLEVE Acetylen CO Ammoniak Chlor Wasserstoff Kohlenstoffmonoxid">
+                        <a href="#" onclick="showChecklisten()">
+                            <img src="images/icons/checklisten.png" alt="Stoff-Checklisten"><h3>Stoff-Checklisten</h3><p>Explosion (BLEVE), Acetylen, CO, Ammoniak, Chlor</p>
+                        </a>
+                    </li>
+
+                    <li data-theme="k" class="title-center" data-filtertext="Stoff-Kenndaten Gefahren Gefahrnummer Stoffnummer Flammpunkt Zündpunkt Explosionsgrenzen UEG OEG">
+                        <a href="#" onclick="showKenndaten()">
+                            <img src="images/icons/kenndaten.png" alt="Stoff-Kenndaten"><h3>Stoff-Kenndaten</h3>
+                        </a>
+                    </li>
+                    <li data-theme="k" class="title-center" data-filtertext="Grenzwerte Definitionen IDLH ETW MAK AEGL ERPG">
+                        <a href="#" onclick="showGrenzwerte()">
+                            <img src="images/icons/etw.png" alt="Grenzwerte - Definitionen"><h3>Grenzwerte - Definitionen</h3>
+                        </a>
+                    </li>
+                    <li data-theme="e" class="title-center" data-filtertext="Karte Absperrmassnahmen Google Map Maps">
+                        <a href="#mappage">
+                            <img src="images/icons/karte.png" alt="Karte - Absperrmaßnahmen"><h3>Karte - Absperrma&szlig;nahmen</h3>
+                        </a>
+                    </li>
+                    <li data-theme="e" class="title-center">
+                        <a href="#" onclick="showLinks()">
+                            <img src="images/icons/links.png" alt="Links"><h3>Links</h3>
+                        </a>
+                    </li>
+                </ul>
+
+            </div><!-- /content -->
+
+        </div><!-- /page -->
+
+        <!-- data page -->
+        <div data-role="page" id="datapage" data-title="Blattler" data-theme="e">
+
+            <div data-role="header" id="datapageheader" class="bfvheader bfvheader-e" data-position="fixed" data-tap-toggle="false" >
+                <span class="ui-title"></span>
+                <a href="#" data-icon="arrow-l" onclick="showIndex()" class="ui-btn-left inhaltsverzeichnis">Inhaltsverzeichnis</a>                
+            </div><!-- /header -->
+
+            <div data-role="content"></div><!-- /content -->
+
+        </div><!-- /page -->
+
+        <!-- zoom dialog -->
+        <div data-role="dialog" id="zoomdialog" >
+
+            <div data-role="header">
+                <h1>Zoom</h1>
+            </div><!-- /header -->
+
+            <div data-role="content">                
+            </div><!-- /content -->
+
+        </div><!-- /dialog --> 
+
+        <!-- link page (Wichtige Links) -->
+        <div data-role="page" id="linkpage" data-title="Blattler" data-theme="e">           
+
+            <div data-role="header" id="linkpageheader" class="bfvheader bfvheader-e" data-position="fixed" data-tap-toggle="false">
+                <span class="ui-title"></span>
+                <a href="#" data-icon="arrow-l" onclick="showIndex()" class="ui-btn-left inhaltsverzeichnis">Inhaltsverzeichnis</a>
+            </div><!-- /header -->
+
+            <div data-role="content">
+
+                <h2>Wichtige Links</h2>               
+                <ul data-role="listview" >
+                    <li>
+                        <a href="#" onclick='control.openWebsite("http://www.bundesfeuerwehrverband.at/downloads/infoblaetter/");' rel="external">
+                            <img src="images/icons/oebfv.png" alt="Bundesfeuerwehrverband Infoblätter">
+                            <h3>Bundesfeuerwehrverband Infoblätter</h3><p>www.bundesfeuerwehrverband.at</p>
+                        </a>
+                    </li> 
+                    <li>
+                        <a href="#" onclick='control.openWebsite("http://www.i122.at/");' rel="data-external">
+                            <img src="images/icons/i122.png" alt="Rettungskartendatenbank">
+                            <h3>Rettungskartendatenbank</h3><p>www.i122.at</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='control.openWebsite("http://www.tuis.at/");' rel="external">
+                            <img src="images/icons/tuis.png" alt="TUIS-Datenbank">
+                            <h3>TUIS-Datenbank</h3><p>www.tuis.at</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='control.openWebsite("http://www.ericards.net/");' rel="external">
+                            <img src="images/icons/checklisten.png" alt="ERICards">
+                            <h3>ERICards</h3><p>www.ericards.net</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='control.openWebsite("http://warnungen.zamg.at/");' rel="external">
+                            <img src="images/icons/zamg.png" alt="ZAMG Wetterwarnungen">
+                            <h3>ZAMG Wetterwarnungen</h3><p>warnungen.zamg.at</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='control.openWebsite("http://www.meteoalarm.eu/");' rel="external">
+                            <img src="images/icons/meteoalarm.png" alt="meteoalarm Wetterwarnungen">
+                            <h3>meteoalarm Wetterwarnungen</h3><p>www.meteoalarm.eu</p>
+                        </a>
+                    </li>
+                </ul>
+
+            </div><!-- /content -->
+
+        </div><!-- /page -->
+
+        <!-- map -->
+        <div data-role="page" id="mappage">
+
+            <div data-role="header" data-theme="e" class="bfvheader bfvheader-e" data-position="fixed" data-tap-toggle="false">
+                <span class="ui-title"></span>
+                <a href="#mainpage" data-icon="arrow-l" data-theme="b" class="ui-btn-left inhaltsverzeichnis">Inhaltsverzeichnis</a>
+            </div><!-- /header -->
+
+            <div data-role="content">                
+                <div id="map"></div>
+            </div><!-- /content -->
+
+        </div><!-- /page -->       
+
+    </body>
+</html>

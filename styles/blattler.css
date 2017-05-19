@@ -1,0 +1,218 @@
+/**
+* version 1.4.0, 22.12.2013
+*/
+
+
+/* =============================== header =============================== */
+
+.bfvheader {
+    background-repeat:repeat-x;
+    background-size: auto 100%;
+    border-bottom: none;
+}
+
+div[data-role="page"] div[data-role="header"] {
+    height: 48px;
+}
+
+/* weiss */
+.bfvheader-e {
+    background-image: url(images/header-bg-e.png) !important;
+}
+
+/* gelb */
+.bfvheader-f {
+    background-image: url(images/header-bg-f.png) !important;
+}
+
+/* gruen */
+.bfvheader-g {
+    background-image: url(images/header-bg-g.png) !important;
+}
+
+/* rot */
+.bfvheader-h {
+    background-image: url(images/header-bg-h.png) !important;
+}
+
+/* blau */
+.bfvheader-i {
+    background-image: url(images/header-bg-i.png) !important;
+}
+
+/* orange */
+.bfvheader-j {
+    background-image: url(images/header-bg-j.png) !important;
+}
+
+/* violett */
+.bfvheader-k {
+    background-image: url(images/header-bg-k.png) !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* ========================== inhaltsverzeichnis ========================== */
+
+h2 {
+    text-align: center;
+    -webkit-border-radius: 0.4em;
+    border-radius: 0.4em;
+    border: 3px solid #000000;
+    color: #333333;
+    text-shadow: 0 1px 0 #ffffff;
+    background: #ffffff;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 0;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.title-center h3 {
+    padding-top: 10px;
+}
+
+a.inhaltsverzeichnis span.ui-btn-inner {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+a.inhaltsverzeichnis span.ui-icon {
+    left: 10px !important;
+}
+
+a.inhaltsverzeichnis span.ui-btn-text {
+    left: 5px
+}
+
+/* ============================== I M A G E S ============================== */
+
+#datapage div[data-role="content"] {
+    padding: 0;
+}
+
+.link {
+    padding: 30px;
+    padding-bottom: 0;
+}
+
+.preview {
+    text-align: center;
+    margin: auto;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    padding-top: 5px;
+}
+
+.preview:first-child {
+    padding-top: 0;
+}
+
+.preview:last-child {
+    border: none;
+}
+
+.preview img {
+    width: 100%;
+    max-width: 1238px;
+    height: auto;
+}
+
+#zoomdialog div[data-role="content"] {
+    padding: 0;
+    overflow-x: scroll;
+}
+
+.zoom img {
+    width: 200% !important;
+    max-width: 2476px !important;
+}
+
+/* =============================== M A P =============================== */
+
+#mappage-popup h3,
+#mappage-popup p {
+    text-align: center;
+}
+
+#mappage {
+    text-align: center;
+    height: -moz-calc(100% - 42px);
+    height: -webkit-calc(100% - 42px);
+    height: calc(100% - 42px);    
+}
+
+#map {
+    height: 100%;
+    text-align: center;
+}
+
+#mappage .ui-content {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0 !important;    
+}
+
+
+#map .legend {
+    padding: 6px 8px;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    line-height: 18px;
+    color: #555;
+    text-align: right;
+}
+
+#map .legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+#map .mapButton {
+    background: white;
+    padding: 10px;
+    border: 1px black solid;
+    border-radius: 2px;
+    cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
